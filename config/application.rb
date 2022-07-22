@@ -25,7 +25,3 @@ module TranslationMiddleware
     config.api_only = true
   end
 end
-
-Slack.configure do |config|
-  config.token = Rails.application.credentials.slack.bot_token
-end
