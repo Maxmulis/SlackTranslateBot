@@ -1,9 +1,10 @@
 class Api::V1::TranslationsController < ApplicationController
   def translate
-    if params['type'] == 'url_verification'
+    slack_request = Slack::Events::Request.new(request)
+    if params['type'] == 'url_verification' && slack_request.verify!
       render json: { challenge: params['challenge'] }, status: :ok
       # Check if reaction is a flag-emoji, if it is: save :message, :ts, :channel
-    elsif params['event']['type'] == 'reaction_added'
+    elsif params['event']['type'] == 'reaction_added' && slack_request.verify!
       render status: :ok
       reaction = Reaction.new(params['event'])
       if reaction.valid?
