@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ts: MyString
+  channel: MyString
+  reaction: MyString
+  user: MyString
+  type: 
+
+two:
+  ts: MyString
+  channel: MyString
+  reaction: MyString
+  user: MyString
+  type: 
